@@ -4,7 +4,7 @@ lapp.patch("/wishlist/remove", async (req, res) => {
         { email: userEmail },
         { $pull: { wishlist: new ObjectId(productId) } }
       );
-      res.send(result);
+      res.send(result);sohel rana sagorrrrrrrrrrrrrrrrr
     });
 
     // get product details
