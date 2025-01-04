@@ -1,0 +1,16 @@
+lapp.patch("/wishlist/remove", async (req, res) => {
+      const { userEmail, productId } = req.body;
+      const result = await userCollection.updateOne(
+        { email: userEmail },
+        { $pull: { wishlist: new ObjectId(productId) } }
+      );
+      res.send(result);
+    });
+
+    // get product details
+    app.get("/product/:id", async (req, res) => {
+      try {
+        const productId = req.params.id;
+        const result = await productCollection.findOne({
+          _id: new ObjectId(productId),
+        });
